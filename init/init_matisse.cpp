@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2016, The Linux Foundation. All rights reserved.
  Copyright (c) 2017-2018, The LineageOS Project. All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are
  met:
@@ -14,7 +14,7 @@
  * Neither the name of The Linux Foundation nor the names of its
  contributors may be used to endorse or promote products derived
  from this software without specific prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -81,7 +81,7 @@ void set_wifionly()
 
 void vendor_load_properties()
 {
-	
+
     const auto set_ro_product_prop = [](const std::string &source,
             const std::string &prop, const std::string &value) {
         auto prop_name = "ro.product." + source + prop;
@@ -97,6 +97,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "matissewifi");
         }
 		property_override("ro.build.description", "matissewifiue-user 5.0.2 LRX22G T530NUU1BOJ4 release-keys");
+        property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 		set_wifionly();
 	} else if (bootloader.find("T530XX") == 0) {
 		/* matissewifixx */
@@ -106,6 +107,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "matissewifi");
         }
 		property_override("ro.build.description", "matissewifixx-user 5.0.2 LRX22G T530XXU1BOJ4 release-keys");
+        property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 		set_wifionly();
 	} else if (bootloader.find("T531XX") == 0) {
 		/* matisse3gxx */
@@ -115,6 +117,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "matisse3g");
         }
 		property_override("ro.build.description", "matisse3gxx-user 5.0.2 LRX22G T531XXU1BOE6 release-keys");
+        property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 	} else if (bootloader.find("T535XX") == 0) {
 		/* matisseltexx */
         for (const auto &source : ro_product_props_default_source_order) {
@@ -123,10 +126,11 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "matisselte");
         }
 		property_override("ro.build.description", "matisseltexx-user 5.0.2 LRX22G T535XXU1BOL1 release-keys");
+        property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys"); 
 	} else {
 		set_wifionly();
 	}
-	
+
 	std::string device = GetProperty("ro.product.device", "");
 	LOG(ERROR) << "Found bootloader id " << bootloader <<  " setting build properties for "
 	<< device <<  " device" << std::endl;
