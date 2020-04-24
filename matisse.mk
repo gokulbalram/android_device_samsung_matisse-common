@@ -19,9 +19,11 @@
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-# Boot animation
+# Boot Animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 800   
+TARGET_BOOTANIMATION_HALF_RES := true
+
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -89,6 +91,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Recents
 PRODUCT_PROPERTY_OVERRIDES += \
