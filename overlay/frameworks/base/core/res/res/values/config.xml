@@ -252,4 +252,13 @@
       The default is false. -->
     <bool name="config_lidControlsSleep">true</bool>
 
+        <!-- Maximum number of supported users -->
+
+    <integer name="config_multiuserMaximumUsers">3</integer>
+
+
+    <!-- Whether UI for multi user should be shown -->
+
+    <bool name="config_enableMultiUserUI">true</bool>
+
 </resources>
